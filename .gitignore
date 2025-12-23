@@ -1,1 +1,8 @@
 .env
+/backend/pdf_resume/*
+!/backend/pdf_resume/README.MD
+/backend/latex/tex_files/*
+!/backend/latex/tex_files/README.MD
+
+/backend/test_jsons
+/backend/latex/templates/resume_friend.tex
