@@ -7,8 +7,6 @@ import (
 	"resume-backend/latex"
 )
 
-const pathToLatex = `/latex`
-
 func testJSONEncoder() error {
 	file, err := os.Open("test_jsons/test1.json")
 	if err != nil {
@@ -28,7 +26,22 @@ func testJSONEncoder() error {
 	return nil
 }
 
+func testJSONDecoder(resume latex.Resume) error {
+	file, err := os.Open("test_jsons/test1.json")
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+	err = json.NewDecoder(file).Decode(resume)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
 func main() {
-	fmt.Println(latex.GeneratePDF(`latex\templates\resume_friend.tex`, `pdf_resume`))
-	//fmt.Println(testJSONEncoder())
+	latex.InitTampltes()
+	resume := &latex.ResumeClassic{}
+	fmt.Println(testJSONDecoder(resume))
+	fmt.Println(latex.GeneratePDF("test", "pdf_resume", resume))
 }

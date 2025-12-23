@@ -1,38 +1,63 @@
 package latex
 
+const resumeClassicName = "resume_classic.tex"
+
 type ResumeClassic struct {
-	templateName string
-	Person       PersonClassic
-	Education    EducationClassic
-	Positions    []PositionClassic
+	Person     PersonClassic     `json:"person"`
+	Education  EducationClassic  `json:"education"`
+	Experience []PositionClassic `json:"experience"`
+	Courses    []CourseClassic   `json:"courses"`
+	Projects   []ProjectClassic  `json:"projects"`
+	Skills     []SkillClassic    `json:"skills"`
+	AboutMe    string            `json:"about_me"`
 }
 
 type PersonClassic struct {
-	Name     string
-	Position string
-	Contacts []ContactClassic
+	Name     string           `json:"name"`
+	Position string           `json:"position"`
+	Contacts []ContactClassic `json:"contacts"`
 }
 
 type ContactClassic struct {
-	Title string
-	Ref   string
+	Title string `json:"title"`
+	Ref   string `json:"ref"`
 }
 
 type EducationClassic struct {
-	Instituion string
-	Specialty  string
-	StartDate  string
-	EndDate    string
-}
-
-type ExperienceClassic struct {
+	Institution string `json:"institution"`
+	Specialty   string `json:"specialty"`
+	Location    string `json:"location"`
+	StartDate   string `json:"start_date"`
+	EndDate     string `json:"end_date"`
 }
 
 type PositionClassic struct {
-	Position    string
-	Company     string
-	Location    string
-	StartDate   string
-	EndDate     string
-	Description []string
+	Position    string   `json:"position"`
+	Company     string   `json:"company"`
+	Location    string   `json:"location"`
+	StartDate   string   `json:"start_date"`
+	EndDate     string   `json:"end_date"`
+	Description []string `json:"description"`
+}
+
+type CourseClassic struct {
+	Title  string `json:"title"`
+	Period string `json:"period"`
+	Author string `json:"author"`
+}
+
+type ProjectClassic struct {
+	Title       string   `json:"title"`
+	Stack       string   `json:"stack"`
+	Ref         string   `json:"ref"`
+	Description []string `json:"description"`
+}
+
+type SkillClassic struct {
+	Name        string `json:"name"`
+	Description string `json:"description"`
+}
+
+func (r *ResumeClassic) TemplateName() string {
+	return resumeClassicName
 }
