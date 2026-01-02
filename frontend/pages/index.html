@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Главная страница</title>
+</head>
+<body>
+    <h1>Конструктор резюме</h1>
+
+    <form>
+        <fieldset>
+            <legend>Соискатель</legend>
+            <input placeholder="Имя">
+            <br>
+            <input placeholder="Должность">
+            <fieldset>
+                <legend>Контакты</legend>
+                <div>
+                    <input placeholder="Контакты">
+                    <input placeholder="Ссылка">
+                </div>
+                <button id="buttonAddContact">+</button>
+            </fieldset>
+        </fieldset>
+
+        <fieldset>
+            <legend>Образование</legend>
+            <input placeholder="Учебное заведение">
+            <br>
+            <input placeholder="Специальность">
+            <br>
+            <input placeholder="Местоположение">
+            <br>
+            <input placeholder="Год поступления">
+            <br>
+            <input placeholder="Год выпуска">
+        </fieldset>
+
+        <fieldset>
+            <legend>Опыт работы</legend>
+            <fieldset>
+                <input placeholder="Должность">
+                <br>
+                <input placeholder="Место работы">
+                <br>
+                <input placeholder="Местоположение">
+                <br>
+                <input placeholder="Период начала">
+                <br>
+                <input placeholder="Период окончания">
+                <br>
+                <textarea rows="2" cols="40" placeholder="Описание вашей работы"></textarea>
+            </fieldset>
+            <button id="buttonAddPositionDescription">+</button>
+        </fieldset>
+
+        <fieldset>
+            <legend>Образовательные курсы</legend>
+            <fieldset>
+                <input placeholder="Название">
+                <br>
+                <input placeholder="Период обучения">
+                <br>
+                <input placeholder="Автор курса">
+            </fieldset>
+            <button id="buttonAddCourse">+</button>
+        </fieldset>
+
+        <fieldset>
+            <legend>Проекты</legend>
+            <fieldset>
+                <input placeholder="Название">
+                <br>
+                <input placeholder="Стек технологий">
+                <br>
+                <input placeholder="Ссылка на репозиторий">
+                <fieldset>
+                    <div>
+                        <textarea rows="2" cols="40" placeholder="Описание проекта"></textarea>
+                    </div>
+                    <button id="buttonAddProjectDescription">+</button>
+                </fieldset>
+            </fieldset>
+            <button id="buttonAddProject">+</button>
+        </fieldset>
+
+        <fieldset>
+            <legend>Навыки</legend>
+            <fieldset>
+                <input placeholder="Название">
+                <br>
+                <input placeholder="Описание">
+            </fieldset>
+            <button id="buttonAddSkill">+</button>
+        </fieldset>
+
+        <fieldset>
+            <legend>О себе</legend>
+            <textarea rows="5" cols="40"></textarea>
+        </fieldset>
+
+        <input type="submit" value="Отправить">
+    </form>
+
+    <script src="/static/js/cloning.js?v=3"></script>
+</body>
+</html>

@@ -81,14 +81,14 @@ func (a *App) Run() error {
 	http.HandleFunc("/resume", a.getResume)
 
 	server := &http.Server{
-		Addr:              ":8000",
+		Addr:              ":8100",
 		ReadTimeout:       30 * time.Second,
 		ReadHeaderTimeout: 15 * time.Second,
 		WriteTimeout:      30 * time.Second,
 		IdleTimeout:       120 * time.Second,
 	}
 
-	log.Printf("Server started on: %v\n", server.Addr)
+	log.Printf("Backend server started on: %v\n", server.Addr)
 	err := server.ListenAndServe()
 	return err
 }
