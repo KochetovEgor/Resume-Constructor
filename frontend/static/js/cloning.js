@@ -1,19 +1,27 @@
+"use strict"
 function cloneElementWithButton(event) {
-    const forCloning = event.currentTarget.previousElementSibling
-    const clone = forCloning.cloneNode(true)
-    forCloning.after(clone)
+    const key = event.currentTarget.dataset.buttonAdd;
+    const clone = indexCloning[key].cloneNode(true);
+    addEventsOnButtons(clone);
+    event.currentTarget.before(clone);
+    event.preventDefault();
 }
 
-const btnAddContatcs = document.getElementById("buttonAddContact")
-const btnAddPosDesc = document.getElementById("buttonAddPositionDescription")
-const btnAddCourse = document.getElementById("buttonAddCourse")
-const btnAddProjectDecs = document.getElementById("buttonAddProjectDescription")
-const btnAddProject = document.getElementById("buttonAddProject")
-const btnAddSkill = document.getElementById("buttonAddSkill")
+function addEventsOnButtons(node) {
+    const addButtons = node.querySelectorAll("[data-button-add]");
+    for (const btn of addButtons) {
+        btn.addEventListener("click", cloneElementWithButton);
+    }
+}
 
-btnAddContatcs.addEventListener("click", cloneElementWithButton)
-btnAddPosDesc.addEventListener("click", cloneElementWithButton)
-btnAddCourse.addEventListener("click", cloneElementWithButton)
-btnAddProjectDecs.addEventListener("click", cloneElementWithButton)
-btnAddProject.addEventListener("click", cloneElementWithButton)
-btnAddSkill.addEventListener("click", cloneElementWithButton)
+const resume = document.getElementById("resume");
+
+const indexCloning = {};
+resume.querySelectorAll("[data-for-button-add]").forEach(
+    el => {
+        const key = el.dataset.forButtonAdd;
+        indexCloning[key] = el.cloneNode(true);
+    }
+)
+
+addEventsOnButtons(resume);

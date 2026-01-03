@@ -7,7 +7,7 @@
 <body>
     <h1>Конструктор резюме</h1>
 
-    <form>
+    <form id="resume">
         <fieldset>
             <legend>Соискатель</legend>
             <input placeholder="Имя">
@@ -15,11 +15,12 @@
             <input placeholder="Должность">
             <fieldset>
                 <legend>Контакты</legend>
-                <div>
+                <fieldset data-for-button-add="contact">
                     <input placeholder="Контакты">
+                    <br>
                     <input placeholder="Ссылка">
-                </div>
-                <button id="buttonAddContact">+</button>
+                </fieldset>
+                <button id="buttonAddContact" data-button-add="contact">+</button>
             </fieldset>
         </fieldset>
 
@@ -38,7 +39,7 @@
 
         <fieldset>
             <legend>Опыт работы</legend>
-            <fieldset>
+            <fieldset data-for-button-add="experience">
                 <input placeholder="Должность">
                 <br>
                 <input placeholder="Место работы">
@@ -51,47 +52,47 @@
                 <br>
                 <textarea rows="2" cols="40" placeholder="Описание вашей работы"></textarea>
             </fieldset>
-            <button id="buttonAddPositionDescription">+</button>
+            <button id="buttonAddPositionDescription" data-button-add="experience">+</button>
         </fieldset>
 
         <fieldset>
             <legend>Образовательные курсы</legend>
-            <fieldset>
+            <fieldset data-for-button-add="course">
                 <input placeholder="Название">
                 <br>
                 <input placeholder="Период обучения">
                 <br>
                 <input placeholder="Автор курса">
             </fieldset>
-            <button id="buttonAddCourse">+</button>
+            <button id="buttonAddCourse" data-button-add="course">+</button>
         </fieldset>
 
         <fieldset>
             <legend>Проекты</legend>
-            <fieldset>
+            <fieldset data-for-button-add="project">
                 <input placeholder="Название">
                 <br>
                 <input placeholder="Стек технологий">
                 <br>
                 <input placeholder="Ссылка на репозиторий">
                 <fieldset>
-                    <div>
+                    <div data-for-button-add="projectDescription">
                         <textarea rows="2" cols="40" placeholder="Описание проекта"></textarea>
                     </div>
-                    <button id="buttonAddProjectDescription">+</button>
+                    <button id="buttonAddProjectDescription" data-button-add="projectDescription">+</button>
                 </fieldset>
             </fieldset>
-            <button id="buttonAddProject">+</button>
+            <button id="buttonAddProject" data-button-add="project">+</button>
         </fieldset>
 
         <fieldset>
             <legend>Навыки</legend>
-            <fieldset>
+            <fieldset data-for-button-add="skill">
                 <input placeholder="Название">
                 <br>
                 <input placeholder="Описание">
             </fieldset>
-            <button id="buttonAddSkill">+</button>
+            <button id="buttonAddSkill" data-button-add="skill">+</button>
         </fieldset>
 
         <fieldset>
@@ -102,6 +103,6 @@
         <input type="submit" value="Отправить">
     </form>
 
-    <script src="/static/js/cloning.js?v=3"></script>
+    <script src="/static/js/cloning.js?v=8"></script>
 </body>
 </html>
