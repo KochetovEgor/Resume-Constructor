@@ -7,102 +7,133 @@
 <body>
     <h1>Конструктор резюме</h1>
 
-    <form id="resume">
-        <fieldset>
+    <div id="resume" data-obj-field="resumeClassic" data-obj-type="object">
+        <fieldset data-obj-field="person" data-obj-type="object">
             <legend>Соискатель</legend>
-            <input placeholder="Имя">
+            <input placeholder="Имя" data-obj-field="name" data-obj-type="string">
             <br>
-            <input placeholder="Должность">
-            <fieldset>
+            <input placeholder="Должность" data-obj-field="position" data-obj-type="string">
+            <fieldset data-obj-field="contacts" data-obj-type="array">
                 <legend>Контакты</legend>
-                <fieldset data-for-button-add="contact">
-                    <input placeholder="Контакты">
+                <fieldset data-for-button-add="contact" data-obj-field="contact"
+                 data-obj-type="object">
+                    <input placeholder="Контакты" data-obj-field="title"
+                     data-obj-type="string">
                     <br>
-                    <input placeholder="Ссылка">
+                    <input placeholder="Ссылка" data-obj-field="ref"
+                     data-obj-type="string">
                 </fieldset>
-                <button id="buttonAddContact" data-button-add="contact">+</button>
+                <button data-button-add="contact">+</button>
             </fieldset>
         </fieldset>
 
-        <fieldset>
+        <fieldset data-obj-field="education" data-obj-type="object">
             <legend>Образование</legend>
-            <input placeholder="Учебное заведение">
+            <input placeholder="Учебное заведение" data-obj-field="institution"
+             data-obj-type="string">
             <br>
-            <input placeholder="Специальность">
+            <input placeholder="Специальность" data-obj-field="specialty"
+             data-obj-type="string">
             <br>
-            <input placeholder="Местоположение">
+            <input placeholder="Местоположение" data-obj-field="location"
+             data-obj-type="string">
             <br>
-            <input placeholder="Год поступления">
+            <input placeholder="Год поступления" data-obj-field="start_date"
+             data-obj-type="string">
             <br>
-            <input placeholder="Год выпуска">
+            <input placeholder="Год выпуска" data-obj-field="end_date"
+             data-obj-type="string">
         </fieldset>
 
-        <fieldset>
+        <fieldset data-obj-field="experience" data-obj-type="array">
             <legend>Опыт работы</legend>
-            <fieldset data-for-button-add="experience">
-                <input placeholder="Должность">
+            <fieldset data-for-button-add="experience" data-obj-field="position"
+             data-obj-type="object">
+                <input placeholder="Должность" data-obj-field="position"
+                 data-obj-type="string">
                 <br>
-                <input placeholder="Место работы">
+                <input placeholder="Место работы" data-obj-field="company"
+                 data-obj-type="string">
                 <br>
-                <input placeholder="Местоположение">
+                <input placeholder="Местоположение" data-obj-field="location"
+                 data-obj-type="string">
                 <br>
-                <input placeholder="Период начала">
+                <input placeholder="Период начала" data-obj-field="start_date"
+                 data-obj-type="string">
                 <br>
-                <input placeholder="Период окончания">
+                <input placeholder="Период окончания" data-obj-field="end_date"
+                 data-obj-type="string">
                 <br>
-                <textarea rows="2" cols="40" placeholder="Описание вашей работы"></textarea>
+                <textarea rows="2" cols="40" placeholder="Описание вашей работы"
+                data-obj-field="description" data-obj-type="string"></textarea>
             </fieldset>
-            <button id="buttonAddPositionDescription" data-button-add="experience">+</button>
+            <button data-button-add="experience">+</button>
         </fieldset>
 
-        <fieldset>
+        <fieldset data-obj-field="courses" data-obj-type="array">
             <legend>Образовательные курсы</legend>
-            <fieldset data-for-button-add="course">
-                <input placeholder="Название">
+            <fieldset data-for-button-add="course" data-obj-field="course"
+             data-obj-type="object">
+                <input placeholder="Название" data-obj-field="title"
+                 data-obj-type="string">
                 <br>
-                <input placeholder="Период обучения">
+                <input placeholder="Период обучения" data-obj-field="period"
+                 data-obj-type="string">
                 <br>
-                <input placeholder="Автор курса">
+                <input placeholder="Автор курса" data-obj-field="author"
+                 data-obj-type="string">
             </fieldset>
-            <button id="buttonAddCourse" data-button-add="course">+</button>
+            <button data-button-add="course">+</button>
         </fieldset>
 
-        <fieldset>
+        <fieldset data-obj-field="projects" data-obj-type="array">
             <legend>Проекты</legend>
-            <fieldset data-for-button-add="project">
-                <input placeholder="Название">
+            <fieldset data-for-button-add="project" data-obj-field="project"
+             data-obj-type="object">
+                <input placeholder="Название" data-obj-field="title"
+                 data-obj-type="string">
                 <br>
-                <input placeholder="Стек технологий">
+                <input placeholder="Стек технологий" data-obj-field="stack"
+                 data-obj-type="string">
                 <br>
-                <input placeholder="Ссылка на репозиторий">
-                <fieldset>
-                    <div data-for-button-add="projectDescription">
-                        <textarea rows="2" cols="40" placeholder="Описание проекта"></textarea>
+                <input placeholder="Ссылка на репозиторий" data-obj-field="ref"
+                 data-obj-type="string">
+                <fieldset data-obj-field="description" data-obj-type="array">
+                    <div data-for-button-add="projectDescription"
+                     data-obj-field="stringNode" data-obj-type="tempNode">
+                        <textarea rows="2" cols="40" placeholder="Описание проекта"
+                        data-obj-field="description" data-obj-type="string"></textarea>
                     </div>
-                    <button id="buttonAddProjectDescription" data-button-add="projectDescription">+</button>
+                    <button data-button-add="projectDescription">+</button>
                 </fieldset>
             </fieldset>
-            <button id="buttonAddProject" data-button-add="project">+</button>
+            <button data-button-add="project">+</button>
         </fieldset>
 
-        <fieldset>
+        <fieldset data-obj-field="skills" data-obj-type="array">
             <legend>Навыки</legend>
-            <fieldset data-for-button-add="skill">
-                <input placeholder="Название">
+            <fieldset data-for-button-add="skill" data-obj-field="skill"
+            data-obj-type="object">
+                <input placeholder="Название" data-obj-field="name"
+                data-obj-type="string">
                 <br>
-                <input placeholder="Описание">
+                <input placeholder="Описание" data-obj-field="description"
+                data-obj-type="string">
             </fieldset>
-            <button id="buttonAddSkill" data-button-add="skill">+</button>
+            <button data-button-add="skill">+</button>
         </fieldset>
 
-        <fieldset>
+        <fieldset data-obj-field="about_me" data-obj-type="tempNode">
             <legend>О себе</legend>
-            <textarea rows="5" cols="40"></textarea>
+            <textarea rows="5" cols="40"
+            data-obj-field="description" data-obj-type="string"></textarea>
         </fieldset>
 
-        <input type="submit" value="Отправить">
-    </form>
+        <button id="sendResume">Отправить</button>
+    </div>
 
-    <script src="/static/js/cloning.js?v=8"></script>
+    <script src="/static/js/cloning.js?v=9"></script>
+    <script src="/static/js/create_object.js?v=1"></script>
+    <script src="/static/js/sending_classic.js?v=1"></script>
 </body>
 </html>

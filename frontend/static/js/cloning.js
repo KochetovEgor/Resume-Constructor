@@ -1,10 +1,10 @@
 "use strict"
+
 function cloneElementWithButton(event) {
     const key = event.currentTarget.dataset.buttonAdd;
     const clone = indexCloning[key].cloneNode(true);
     addEventsOnButtons(clone);
     event.currentTarget.before(clone);
-    event.preventDefault();
 }
 
 function addEventsOnButtons(node) {
