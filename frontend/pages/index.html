@@ -63,9 +63,14 @@
                 <br>
                 <input placeholder="Период окончания" data-obj-field="end_date"
                  data-obj-type="string">
-                <br>
-                <textarea rows="2" cols="40" placeholder="Описание вашей работы"
-                data-obj-field="description" data-obj-type="string"></textarea>
+                <fieldset data-for-button-add="positionDescription" 
+                data-obj-field="description" data-obj-type="array">
+                    <div data-obj-field="descriptionTemp" data-obj-type="tempNode">
+                        <textarea rows="2" cols="40" placeholder="Описание вашей работы"
+                        data-obj-field="description" data-obj-type="string"></textarea>
+                    </div>
+                </fieldset>
+                <button data-button-add="positionDescription">+</button>
             </fieldset>
             <button data-button-add="experience">+</button>
         </fieldset>
@@ -129,11 +134,13 @@
             data-obj-field="description" data-obj-type="string"></textarea>
         </fieldset>
 
-        <button id="sendResume">Отправить</button>
+        <button id="buttonSendResume">Отправить</button>
     </div>
+
+    <embed id="pdfViewNode" type="application/pdf" width="100%" height="800px"/>
 
     <script src="/static/js/cloning.js?v=9"></script>
     <script src="/static/js/create_object.js?v=1"></script>
-    <script src="/static/js/sending_classic.js?v=1"></script>
+    <script src="/static/js/sending_classic.js?v=3"></script>
 </body>
 </html>

@@ -10,7 +10,9 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr}
 %\usepackage[english]{babel}
-\usepackage[russian]{babel}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian, english]{babel}
 \usepackage{tabularx}
 \input{glyphtounicode}
 
@@ -186,13 +188,14 @@
     }}
  \end{itemize}
 
-
+{{ if .AboutMe }}
 \section{О себе}
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
      {{.AboutMe}}
     }}
  \end{itemize}
+ {{ end }}
 
 
 %-------------------------------------------
