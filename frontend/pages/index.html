@@ -63,14 +63,14 @@
                 <br>
                 <input placeholder="Период окончания" data-obj-field="end_date"
                  data-obj-type="string">
-                <fieldset data-for-button-add="positionDescription" 
-                data-obj-field="description" data-obj-type="array">
-                    <div data-obj-field="descriptionTemp" data-obj-type="tempNode">
+                <fieldset data-obj-field="description" data-obj-type="array">
+                    <div data-for-button-add="positionDescription"
+                    data-obj-field="descriptionTemp" data-obj-type="tempNode">
                         <textarea rows="2" cols="40" placeholder="Описание вашей работы"
                         data-obj-field="description" data-obj-type="string"></textarea>
                     </div>
+                    <button data-button-add="positionDescription">+</button>
                 </fieldset>
-                <button data-button-add="positionDescription">+</button>
             </fieldset>
             <button data-button-add="experience">+</button>
         </fieldset>
@@ -135,12 +135,15 @@
         </fieldset>
 
         <button id="buttonSendResume">Отправить</button>
+        <button id="buttonSaveResume">Сохранить</button>
+        <button id="buttonLoadResume">Загрузить</button>
     </div>
 
     <embed id="pdfViewNode" type="application/pdf" width="100%" height="800px"/>
 
     <script src="/static/js/cloning.js?v=9"></script>
-    <script src="/static/js/create_object.js?v=1"></script>
-    <script src="/static/js/sending_classic.js?v=3"></script>
+    <script src="/static/js/create_object.js?v=2"></script>
+    <script src="/static/js/sending_classic.js?v=4"></script>
+    <script src="/static/js/saving_user_data.js?v=3"></script>
 </body>
 </html>

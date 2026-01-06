@@ -31,5 +31,4 @@ async function buttonGeneratePDF() {
 const pdfViewNode = document.getElementById("pdfViewNode")
 
 buttonSendResume.addEventListener("click", buttonGeneratePDF);
-console.log(25)
 //buttonSendResume.addEventListener("click", debugObject);
