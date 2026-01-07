@@ -3,8 +3,8 @@ package latex
 const resumeClassicName = "resume_classic.tex"
 
 type ResumeClassic struct {
-	Person     PersonClassic     `json:"person"`
-	Education  EducationClassic  `json:"education"`
+	Person     *PersonClassic    `json:"person"`
+	Education  *EducationClassic `json:"education"`
 	Experience []PositionClassic `json:"experience"`
 	Courses    []CourseClassic   `json:"courses"`
 	Projects   []ProjectClassic  `json:"projects"`

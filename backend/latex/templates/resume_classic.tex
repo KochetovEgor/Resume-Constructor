@@ -107,8 +107,9 @@
 %   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
 % \end{tabular*}
 
+{{ if .Person -}}
+{{- with .Person -}}
 \begin{center}
-    {{- with .Person -}}
     \textbf{\Huge \scshape {{.Name -}} }\par
     \vspace{1pt}
     \textbf{\LARGE {{.Position -}} }\par
@@ -119,11 +120,13 @@
     \texttt{ {{- .Title -}} } $|$
     {{- end -}}
     {{- end -}}
-    {{- end -}}
 \end{center}
+{{- end -}}
+{{- end }}
 
 
-%-----------EDUCATION-----------
+%-----------EDUCATION----------
+{{ if .Education -}}
 \section{Образование}
   {{with .Education -}}
   \resumeSubHeadingListStart
@@ -132,11 +135,13 @@
       { {{- .Specialty -}} }{ {{- .StartDate}} -- {{.EndDate -}} }
   \resumeSubHeadingListEnd
   {{- end}}
+{{ end }}
 
 
 
 
 %-----------EXPERIENCE-----------
+{{ if .Experience -}}
 \section{Опыт работы}
   \resumeSubHeadingListStart
 
@@ -152,8 +157,10 @@
     {{- end}}
 
   \resumeSubHeadingListEnd
+{{- end }}
   
 %----------COURSES-----------------------
+{{ if .Courses -}}
 \section{Курсы}
   \resumeSubHeadingListStart
   {{- range .Courses}}
@@ -162,8 +169,10 @@
       { {{- .Author -}} }{}
   {{- end}}
   \resumeSubHeadingListEnd
+{{- end }}
 
 %-----------PROJECTS-----------
+{{ if .Projects -}}
 \section{Проекты}
     \resumeSubHeadingListStart
     {{- range .Projects}}
@@ -176,9 +185,11 @@
           \resumeItemListEnd
     {{- end}}
     \resumeSubHeadingListEnd
+{{- end }}
 
 
 %-----------PROGRAMMING SKILLS-----------
+{{ if .Skills -}}
 \section{Навыки}
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
@@ -187,6 +198,7 @@
     {{- end}}
     }}
  \end{itemize}
+ {{- end }}
 
 {{ if .AboutMe }}
 \section{О себе}

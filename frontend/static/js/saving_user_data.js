@@ -1,7 +1,8 @@
 "use strict"
 
 function saveResumeObject() {
-    const ResumeObject = createObject(resume);
+    let [ResumeObject, temp] = createObject(resume);
+    //console.log(ResumeObject, temp);
     localStorage.setItem("ResumeObject", JSON.stringify(ResumeObject));
     //console.log(localStorage.getItem("ResumeObject"));
     console.log("Saved");
@@ -66,4 +67,4 @@ const buttonLoadResume = document.getElementById("buttonLoadResume");
 buttonSaveResume.addEventListener("click", saveResumeObject);
 buttonLoadResume.addEventListener("click", loadResumeButton);
 
-console.log(6);
+console.log(8);
