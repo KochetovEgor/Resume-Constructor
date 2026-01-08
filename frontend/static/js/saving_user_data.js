@@ -2,28 +2,20 @@
 
 function saveResumeObject() {
     let [ResumeObject, temp] = createObject(resume);
-    //console.log(ResumeObject, temp);
     localStorage.setItem("ResumeObject", JSON.stringify(ResumeObject));
-    //console.log(localStorage.getItem("ResumeObject"));
     console.log("Saved");
 }
 
 function getAddingButton(elem) {
-    //console.log(elem);
     const child = elem.querySelector(":scope > [data-for-button-add]");
-    //console.log("child=", child)
     const btnValue = child.dataset.forButtonAdd;
     return elem.querySelector(`:scope > [data-button-add="${btnValue}"]`);
 }
 
 function parseObjectIntoElement(elem, obj) {
-    //console.log(obj);
-    //console.log("-")
     if (obj === undefined || obj === null) {
         return;
     }
-    //console.log(elem)
-    //console.log("-")
     let res;
     switch (elem.dataset.objType) {
         case "tempNode":
@@ -66,5 +58,3 @@ const buttonLoadResume = document.getElementById("buttonLoadResume");
 
 buttonSaveResume.addEventListener("click", saveResumeObject);
 buttonLoadResume.addEventListener("click", loadResumeButton);
-
-console.log(8);

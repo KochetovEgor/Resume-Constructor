@@ -40,5 +40,3 @@ function createObject(elem) {
     }
     return [res, isEmpty];
 }
-
-console.log(223)

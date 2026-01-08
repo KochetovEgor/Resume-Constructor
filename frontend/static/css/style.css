@@ -1,0 +1,368 @@
+/* ===== Base ===== */
+* {
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 24px;
+    background: #f4f6f8;
+    color: #222;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 32px;
+    font-size: 32px;
+}
+
+/* ===== Layout ===== */
+#resume {
+    max-width: 900px;
+    margin: 0 auto 40px;
+    background: #ffffff;
+    padding: 24px 32px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== Fieldsets ===== */
+fieldset {
+    border: 1px solid #dcdfe4;
+    border-radius: 10px;
+    padding: 16px 18px 18px;
+    margin-bottom: 20px;
+    background: #fafafa;
+}
+
+legend {
+    padding: 0 10px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #333;
+}
+
+/* вложенные fieldset */
+fieldset fieldset {
+    background: #ffffff;
+    margin-top: 12px;
+}
+
+/* ===== Inputs & Textareas ===== */
+input,
+textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin: 6px 0 14px;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 1px solid #cfd4dc;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #4a7cff;
+    box-shadow: 0 0 0 2px rgba(74, 124, 255, 0.15);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+/* ===== Buttons ===== */
+button {
+    border: none;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s, box-shadow 0.1s;
+}
+
+/* кнопки "+" */
+button[data-button-add] {
+    background: #e8f0ff;
+    color: #2457ff;
+    font-weight: 600;
+    margin-top: 6px;
+}
+
+button[data-button-add]:hover {
+    background: #dbe6ff;
+}
+
+/* основные кнопки */
+#buttonSendResume {
+    background: #4a7cff;
+    color: #ffffff;
+}
+
+#buttonSaveResume {
+    background: #2bb673;
+    color: #ffffff;
+}
+
+#buttonLoadResume {
+    background: #ff9f1c;
+    color: #ffffff;
+}
+
+#buttonSendResume:hover,
+#buttonSaveResume:hover,
+#buttonLoadResume:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* кнопки внизу */
+#resume > button {
+    margin-right: 12px;
+    margin-top: 10px;
+}
+
+/* ===== Description blocks ===== */
+[data-obj-type="tempNode"] {
+    margin-bottom: 10px;
+}
+
+/* ===== PDF Preview ===== */
+#pdfViewNode {
+    max-width: 900px;
+    display: block;
+    margin: 0 auto 40px;
+    border-radius: 12px;
+    border: 1px solid #dcdfe4;
+    background: #ffffff;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    body {
+        padding: 16px;
+    }
+
+    #resume {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+}
+
+/* ===== Visual hierarchy ===== */
+
+/* Крупные разделы резюме */
+#resume > fieldset {
+    background: #ffffff;
+    border: none;
+    border-radius: 14px;
+    padding: 22px 24px 24px;
+    margin-bottom: 28px;
+    position: relative;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+/* Цветная полоса слева у разделов */
+#resume > fieldset::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 14px;
+    bottom: 14px;
+    width: 5px;
+    border-radius: 0 6px 6px 0;
+    background: linear-gradient(
+        to bottom,
+        #4a7cff,
+        #7aa2ff
+    );
+}
+
+/* Заголовок секции */
+#resume > fieldset > legend {
+    font-size: 16px;
+    font-weight: 700;
+    padding: 4px 12px;
+    margin-bottom: 12px;
+    background: #f2f6ff;
+    border-radius: 8px;
+    color: #1f3dbd;
+}
+
+/* ===== Вложенные блоки (опыт, проекты, курсы) ===== */
+fieldset fieldset {
+    background: #f9fafc;
+    border: 1px solid #e2e6ee;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 18px;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6);
+}
+
+/* Ещё глубже (описания, пункты) */
+fieldset fieldset fieldset {
+    background: #ffffff;
+    border-style: dashed;
+    border-color: #cfd6e4;
+}
+
+/* ===== Разделители между логическими блоками ===== */
+fieldset fieldset + button[data-button-add] {
+    margin-top: -8px;
+}
+
+/* ===== Легенды вложенных блоков ===== */
+fieldset fieldset > legend {
+    font-size: 14px;
+    font-weight: 600;
+    color: #444;
+}
+
+/* ===== Отступы вместо <br> ===== */
+input + br,
+textarea + br {
+    display: none;
+}
+
+/* ===== Группировка повторяющихся элементов ===== */
+[data-for-button-add] {
+    padding-left: 8px;
+    border-left: 3px solid #e0e6ff;
+}
+
+/* ===== Hover-эффект для блоков ===== */
+#resume > fieldset:hover {
+    transform: translateY(-1px);
+    transition: transform 0.15s ease;
+}
+
+/* ===== Array items (contacts, projects, experience etc.) ===== */
+
+/* Счётчики для массивов */
+fieldset[data-obj-type="array"] {
+    counter-reset: item;
+}
+
+/* Один элемент массива */
+fieldset[data-for-button-add] {
+    counter-increment: item;
+    background: #ffffff;
+    border: 1px solid #d6dbea;
+    border-radius: 14px;
+    padding: 18px 18px 20px;
+    margin: 22px 0;
+    position: relative;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+
+/* Верхняя плашка элемента */
+fieldset[data-for-button-add]::before {
+    content: "Элемент " counter(item);
+    position: absolute;
+    top: -12px;
+    left: 16px;
+    padding: 4px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    background: #eef3ff;
+    color: #2b4cff;
+    border-radius: 999px;
+    border: 1px solid #d6e0ff;
+}
+
+/* Лёгкая линия слева */
+fieldset[data-for-button-add]::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 12px;
+    bottom: 12px;
+    width: 4px;
+    border-radius: 0 6px 6px 0;
+    background: linear-gradient(
+        to bottom,
+        #4a7cff,
+        #8aa8ff
+    );
+}
+
+/* Hover — ощущение "карточки" */
+fieldset[data-for-button-add]:hover {
+    box-shadow: 0 8px 22px rgba(0,0,0,0.1);
+}
+
+/* ===== Вложенные описания (textarea-пункты) ===== */
+[data-obj-type="tempNode"] {
+    background: #f9faff;
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    border: 1px dashed #d2daf0;
+}
+
+/* ===== Кнопка добавления элемента массива ===== */
+fieldset[data-obj-type="array"] > button[data-button-add] {
+    margin-top: 10px;
+    background: #f1f4ff;
+    border: 1px dashed #cfd8ff;
+}
+
+/* ===== Auto titles for array items ===== */
+
+/* Сброс счётчиков внутри каждого массива */
+fieldset[data-obj-type="array"] {
+    counter-reset: item;
+}
+
+/* Общий стиль элемента массива */
+fieldset[data-for-button-add] {
+    counter-increment: item;
+    position: relative;
+}
+
+/* ===== КОНТАКТЫ ===== */
+fieldset[data-obj-field="contacts"] fieldset[data-for-button-add]::before {
+    content: "Контакт " counter(item);
+}
+
+/* ===== ОПЫТ РАБОТЫ ===== */
+fieldset[data-obj-field="experience"] fieldset[data-for-button-add]::before {
+    content: "Опыт работы " counter(item);
+}
+
+/* ===== КУРСЫ ===== */
+fieldset[data-obj-field="courses"] fieldset[data-for-button-add]::before {
+    content: "Курс " counter(item);
+}
+
+/* ===== ПРОЕКТЫ ===== */
+fieldset[data-obj-field="projects"] fieldset[data-for-button-add]::before {
+    content: "Проект " counter(item);
+}
+
+/* ===== НАВЫКИ ===== */
+fieldset[data-obj-field="skills"] fieldset[data-for-button-add]::before {
+    content: "Навык " counter(item);
+}
+
+/* ===== Универсальный стиль шапки ===== */
+fieldset[data-for-button-add]::before {
+    position: absolute;
+    top: -14px;
+    left: 18px;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    background: #eef3ff;
+    color: #2b4cff;
+    border-radius: 999px;
+    border: 1px solid #d6e0ff;
+    letter-spacing: 0.3px;
+    z-index: 2;
+}

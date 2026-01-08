@@ -12,19 +12,6 @@ import (
 	"time"
 )
 
-func testJSONDecoder(resume latex.Resume) error {
-	file, err := os.Open("test_jsons/test1.json")
-	if err != nil {
-		return err
-	}
-	defer file.Close()
-	err = json.NewDecoder(file).Decode(resume)
-	if err != nil {
-		return err
-	}
-	return nil
-}
-
 const frontendServerAddr = "http://localhost:5100"
 
 const pdfDir = "pdf_resume"
@@ -41,12 +28,6 @@ func (a *App) mainPage(w http.ResponseWriter, r *http.Request) {
 // Return user's resume in pdf format
 func (a *App) getResume(w http.ResponseWriter, r *http.Request) {
 	resume := &latex.ResumeClassic{}
-	/*err := testJSONDecoder(resume)
-	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		fmt.Fprintf(w, "error decoding test JSON: %v\n", err)
-		return
-	}*/
 	err := json.NewDecoder(r.Body).Decode(resume)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
@@ -115,7 +96,7 @@ func allowCORS(next http.Handler) http.Handler {
 // Starts server
 func (a *App) Run() error {
 	http.HandleFunc("/", a.mainPage)
-	http.HandleFunc("/resume", a.getResume)
+	http.HandleFunc("POST /resume", a.getResume)
 	http.HandleFunc("/debug", a.debugPage)
 
 	server := &http.Server{

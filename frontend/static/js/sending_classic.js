@@ -1,15 +1,10 @@
 "use strict"
 
-/*function debugObject() {
-    console.log(createObject(resume));
-}*/
-
 async function sendResume() {
     const [resumeObject, _] = createObject(resume);
     if (resumeObject === undefined) {
         resumeObject = {}
     }
-    //console.log(resumeObject);
     const response = await fetch("http://localhost:8100/resume", {
         method: "POST",
         body: JSON.stringify(resumeObject)
@@ -29,12 +24,9 @@ function previewPDF(response) {
 async function buttonGeneratePDF() {
     const response = await sendResume();
     const PDFblob = await response.blob();
-    console.log(PDFblob);
     pdfViewNode.src = URL.createObjectURL(PDFblob);
 }
 
 const pdfViewNode = document.getElementById("pdfViewNode");
 
 buttonSendResume.addEventListener("click", buttonGeneratePDF);
-console.log(112);
-//buttonSendResume.addEventListener("click", debugObject);

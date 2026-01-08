@@ -1,5 +1,3 @@
-/backend/pdf_resume/*
-!/backend/pdf_resume/README.MD
 /backend/latex/tex_files/*
 !/backend/latex/tex_files/README.MD
 
