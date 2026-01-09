@@ -34,6 +34,7 @@ func (a *App) getResume(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "error decoding test JSON: %v\n", err)
 		return
 	}
+	resume = resume.Escape()
 
 	dir, err := os.MkdirTemp(pdfDir, "pdf_")
 	if err != nil {

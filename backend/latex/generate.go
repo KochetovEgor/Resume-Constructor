@@ -1,6 +1,7 @@
 package latex
 
 import (
+	"bytes"
 	"fmt"
 	"io"
 	"os"
@@ -23,6 +24,32 @@ type Resume interface {
 
 // Variable for all templates
 var resumeTMPL *template.Template
+
+func EscapeLaTeX(s string) string {
+	symbols := map[string]string{
+		`\`: `\textbackslash{}`,
+		`{`: `\{`,
+		`}`: `\}`,
+		`$`: `\$`,
+		`&`: `\&`,
+		`#`: `\#`,
+		`%`: `\%`,
+		`_`: `\_`,
+		`~`: `\textasciitilde{}`,
+		`^`: `\textasciicircum{}`,
+	}
+
+	buf := &bytes.Buffer{}
+	for _, r := range s {
+		r := string(r)
+		if replace, ok := symbols[r]; ok {
+			buf.WriteString(replace)
+		} else {
+			buf.WriteString(r)
+		}
+	}
+	return buf.String()
+}
 
 // Generates resume in .pdf format in directory outputDir. Variable resume is user's data.
 func GeneratePDF(fileName string, outputDir string, resume Resume) error {
