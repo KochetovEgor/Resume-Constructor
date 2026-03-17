@@ -14,16 +14,20 @@
 \usepackage[utf8]{inputenc}
 \usepackage[russian, english]{babel}
 \usepackage{tabularx}
-\input{glyphtounicode}
+%\input{glyphtounicode}
 
 
 %----------FONT OPTIONS----------
 % sans-serif
-% \usepackage[sfdefault]{FiraSans}
+%\usepackage[sfdefault]{FiraSans}
+% В преамбуле:
 % \usepackage[sfdefault]{roboto}
 % \usepackage[sfdefault]{noto-sans}
 % \usepackage[default]{sourcesanspro}
-
+% \usepackage{lmodern}  % Подключаем Latin Modern
+% \renewcommand{\rmdefault}{lmr}  % Делаем его шрифтом по умолчанию для текста с засечками
+% \renewcommand{\sfdefault}{lmss} % Для беззасечных (если используешь \textsf)
+% \renewcommand{\ttdefault}{lmtt} % Для моноширинного шрифта
 % serif
 % \usepackage{CormorantGaramond}
 % \usepackage{charter}
@@ -54,7 +58,7 @@
 }{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
 
 % Ensure that generate pdf is machine readable/ATS parsable
-\pdfgentounicode=1
+%\pdfgentounicode=1
 
 %-------------------------
 % Custom commands
@@ -107,21 +111,27 @@
 %   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
 % \end{tabular*}
 
-{{ if .Person -}}
-{{- with .Person -}}
+
+{{- if .Person }}
+{{- with .Person }}
+
 \begin{center}
-    \textbf{\Huge \scshape {{.Name -}} }\par
-    \vspace{1pt}
-    \textbf{\LARGE {{.Position -}} }\par
-    {{range .Contacts -}}
-    {{if .Ref -}}
-    \href{ {{- .Ref -}} }{\texttt{ {{- .Title -}} }} $|$
-    {{else -}}
-    \texttt{ {{- .Title -}} } $|$
-    {{- end -}}
-    {{- end -}}
+  \textbf{\Huge \scshape {{.Name}}}\par
+  \vspace{1pt}
+  \textbf{\LARGE {{.Position}}}\par
+
+  {{- range $i, $c := .Contacts }}
+    {{- if gt $i 0 -}} $|$ {{- end -}}
+    {{- if $c.Ref -}}
+      \href{ {{$c.Ref}} }{\texttt{ {{$c.Title}} }}
+    {{- else }}
+      \texttt{ {{$c.Title}} }
+    {{- end }}
+  {{- end }}
+
 \end{center}
-{{- end -}}
+
+{{- end }}
 {{- end }}
 
 

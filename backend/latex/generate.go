@@ -59,7 +59,7 @@ func GeneratePDF(fileName string, outputDir string, resume Resume) error {
 	}
 
 	err = generateTEX(file, resume)
-	file.Close()
+	defer file.Close()
 	if err != nil {
 		return fmt.Errorf("error generating .tex file: %v\n", err)
 	}

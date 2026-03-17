@@ -1,7 +1,5 @@
 package latex
 
-import "net/url"
-
 const resumeClassicName = "resume_classic.tex"
 
 type ResumeClassic struct {
@@ -75,7 +73,7 @@ func (r *ResumeClassic) Escape() *ResumeClassic {
 		for i, c := range r.Person.Contacts {
 			escPersonContacts[i] = ContactClassic{
 				Title: EscapeLaTeX(c.Title),
-				Ref:   url.PathEscape(c.Ref),
+				Ref:   c.Ref,
 			}
 		}
 		escPerson.Contacts = escPersonContacts
@@ -124,7 +122,7 @@ func (r *ResumeClassic) Escape() *ResumeClassic {
 		escProject := ProjectClassic{
 			Title: EscapeLaTeX(p.Title),
 			Stack: EscapeLaTeX(p.Stack),
-			Ref:   url.PathEscape(p.Ref),
+			Ref:   p.Ref,
 		}
 		escProjectDescription := make([]string, len(p.Description))
 		for j, d := range p.Description {
